@@ -6,7 +6,16 @@ A small terminal AI assistant for a Raspberry Pi Zero 2 W, using OpenRouter.
     cp .env.example .env && chmod 600 .env
     nano .env            # paste your OpenRouter key
 
+## Install as the `ai` command
+    mkdir -p ~/.local/bin
+    ln -sfn ~/repos/ai-agent/agent.py ~/.local/bin/ai
+    # in ~/.zshrc:
+    export PATH="$HOME/.local/bin:$PATH"
+    alias ai="noglob ai"   # lets you type ? and * without quoting
+
 ## Use
+    ai                                   # chat
+    ai what is using the most memory?    # one-shot
     ./agent.py                                   # chat
     ./agent.py "show the top memory processes"   # one-shot
 
